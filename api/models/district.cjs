@@ -1,6 +1,8 @@
 const sequelize = require("../db/dbConfig.cjs");
 const { DataTypes } = require("sequelize");
 
+const Conference = require('./conference.cjs')
+
 const District = sequelize.define("district", {
     name: {
         type: DataTypes.STRING,
@@ -14,5 +16,8 @@ const District = sequelize.define("district", {
         type: DataTypes.STRING
     }
 })
+
+Conference.hasMany(District)
+District.belongsTo(Conference)
 
 module.exports = District

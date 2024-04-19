@@ -1,3 +1,4 @@
+// imports
 // import { Sequelize } from "sequelize";
 const { Sequelize } = require('sequelize');
 
@@ -13,7 +14,7 @@ const sequelize = new Sequelize({
 //   // other options
 // });
 
-// testing connection
+// // testing connection
 // async function testConnection() {
 //     try {
 //         await sequelize.authenticate();

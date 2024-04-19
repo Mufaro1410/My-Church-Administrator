@@ -1,6 +1,9 @@
 const sequelize = require("../db/dbConfig.cjs");
 const { DataTypes } = require("sequelize");
 
+const Member = require('./members.cjs')
+const Circuit = require('./circuit.cjs')
+
 const Payment = sequelize.define("payment", {
     date: {
         type: DataTypes.DATE,
@@ -19,5 +22,11 @@ const Payment = sequelize.define("payment", {
         allowNull: false
     }
 })
+
+Member.hasMany(Payment)
+Payment.belongsTo(Member)
+
+Circuit.hasMany(Payment)
+Payment.belongsTo(Circuit)
 
 module.exports = Payment
